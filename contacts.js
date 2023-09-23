@@ -4,7 +4,7 @@ const { nanoid } = require("nanoid");
 
 // Путь к файлу с контактами
 const contactsPath = path.join(__dirname, "./db/contacts.json");
-console.log(contactsPath);
+
 
 // Функция для получения списка контактов
 const listContacts = async () => {
@@ -13,7 +13,7 @@ const listContacts = async () => {
   // Преобразуем JSON данные в объект
   return JSON.parse(data);
 };
-console.log(listContacts);
+
 
 // Функция для получения контакта по его идентификатору
 const getContactById = async (contactId) => {
@@ -22,7 +22,7 @@ const getContactById = async (contactId) => {
   const result = contacts.find((contact) => contact.id === contactId);
   return result || null;
 };
-console.log(getContactById);
+
 
 // Функция для удаления контакта по его идентификатору
 const removeContact = async (contactId) => {
@@ -36,7 +36,7 @@ const removeContact = async (contactId) => {
   await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
   return contact;
 };
-console.log(removeContact);
+
 
 // Функция для добавления нового контакта
 const addContact = async (data) => {
@@ -50,7 +50,7 @@ const addContact = async (data) => {
   await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
   return newContact;
 };
-console.log(addContact);
+
 
 module.exports = {
   listContacts,
